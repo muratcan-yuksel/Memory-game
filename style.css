@@ -1,0 +1,14 @@
+#container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+#grid{
+    height: 300px;
+    width: 400px;
+    border: 1px solid black;
+    display:flex;
+    flex-wrap: wrap;
+}
