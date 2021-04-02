@@ -99,6 +99,8 @@ function flipCard() {
   this.setAttribute('src', cardArray[cardId].img);
   console.log(cardsChosen);
   console.log(cardsChosenId);
+  //each time 2 cards are clicked,
+  //check if they're a match
   if (cardsChosen.length === 2) {
     setTimeout(checkMatch, 500);
   }
@@ -107,26 +109,33 @@ function flipCard() {
 // function to check for matches
 function checkMatch() {
   const cards = document.querySelectorAll('img');
+  //the following are integers
   const firstCard = cardsChosenId[0];
   const secondCard = cardsChosenId[1];
+  //the following are names, strings
   if (cardsChosen[0] === cardsChosen[1]) {
-    alert('equal');
+      //if it's a match,
+      //find where the image is located by means of their integers, and turn them white
     cards[firstCard].setAttribute('src', './images/white.png');
     cards[secondCard].setAttribute('src', './images/white.png');
     cardsWon.push(cardsChosenId);
   } else {
     cards[firstCard].setAttribute('src', './images/blank.png');
     cards[secondCard].setAttribute('src', './images/blank.png');
-    // alert('try again');
   }
+  //when the setTimeOut checks if the cards are a match,
+  //empty the arrays to that you can start afresh
   cardsChosen = [];
   cardsChosenId = [];
   results.textContent = cardsWon.length;
+  //if the winning cards equal to 6 (bcs we have 2 of each one of them)
   if (cardsWon.length === cardArray.length / 2) {
-    results.textContent = 'congrats!';
+    results.textContent = 'Congrats!';
   }
 }
-
+//this randomizes the images
+//array sort really sorts items alphabetically
+//in numbers: However, if numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
 cardArray.sort(() => 0.5 - Math.random());
 
 gameBoard();
