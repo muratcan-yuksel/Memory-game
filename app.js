@@ -65,6 +65,8 @@ const cardArray = [
 
 // get the grid
 const grid = document.getElementById('grid');
+// get results section
+const results = document.getElementById('results');
 // create the game board function
 function gameBoard() {
   for (let i = 0; i < cardArray.length; i++) {
@@ -77,8 +79,8 @@ function gameBoard() {
 }
 
 // create some empty arrays to be used
-const cardsChosen = [];
-const cardsChosenId = [];
+let cardsChosen = [];
+let cardsChosenId = [];
 const cardsWon = [];
 
 function flipCard() {
@@ -96,15 +98,35 @@ function flipCard() {
   // it rewrites the "src" attribute to that of the integer's image (which is in cardArray array of objects)
   this.setAttribute('src', cardArray[cardId].img);
   console.log(cardsChosen);
-//   if (cardsChosen.length === 2) {
-//     setTimeout(checkMatch, 500);
-//   }
-// }
-
-//function to check for matches
-function checkMatch(){
-    const cards= document.querySelectorAll("img");
-
+  console.log(cardsChosenId);
+  if (cardsChosen.length === 2) {
+    setTimeout(checkMatch, 500);
+  }
 }
+
+// function to check for matches
+function checkMatch() {
+  const cards = document.querySelectorAll('img');
+  const firstCard = cardsChosenId[0];
+  const secondCard = cardsChosenId[1];
+  if (cardsChosenId[0] === cardsChosen[1]) {
+    alert('equal');
+    cards[firstCard].setAttribute('src', './images/white.png');
+    cards[secondCard].setAttribute('src', './images/white.png');
+    cardsWon.push(cardsChosenId);
+  } else {
+    cards[firstCard].setAttribute('src', './images/blank.png');
+    cards[secondCard].setAttribute('src', './images/blank.png');
+    // alert('try again');
+  }
+  cardsChosen = [];
+  cardsChosenId = [];
+  results.textContent = cardsWon.length;
+  if (cardsWon.length === cardArray.length / 2) {
+    results.textContent = 'congrats!';
+  }
+}
+
+cardArray.sort(() => 0.5 - Math.random());
 
 gameBoard();
