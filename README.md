@@ -9,5 +9,8 @@ implement them.</p>
 <li>The images will disappear</li>
 <li>You'll win when you find all the images</li>
 </ul>
+<p> <a href="https://muratcan-yuksel.github.io/Memory-game/">PLAY</a></p>
+<img src="memory-game.png">
+
 
 
