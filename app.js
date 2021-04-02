@@ -81,4 +81,18 @@ const cardArray = [
   },
 
 ];
-console.log(cardArray.length);
+
+// get the grid
+const grid = document.getElementById('grid');
+// create the game board function
+function gameBoard() {
+  for (i = 0; i < cardArray.length; i++) {
+    const card = document.createElement('img');
+    card.setAttribute('src', './images/blank.png');
+    card.setAttribute('data-id', i);
+    // card.addEventListener('click', flipCard);
+    grid.appendChild(card);
+  }
+}
+
+gameBoard();
