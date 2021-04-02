@@ -109,7 +109,7 @@ function checkMatch() {
   const cards = document.querySelectorAll('img');
   const firstCard = cardsChosenId[0];
   const secondCard = cardsChosenId[1];
-  if (cardsChosenId[0] === cardsChosen[1]) {
+  if (cardsChosen[0] === cardsChosen[1]) {
     alert('equal');
     cards[firstCard].setAttribute('src', './images/white.png');
     cards[secondCard].setAttribute('src', './images/white.png');
