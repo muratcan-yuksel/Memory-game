@@ -81,7 +81,7 @@ function gameBoard() {
 // create some empty arrays to be used
 let cardsChosen = [];
 let cardsChosenId = [];
-const cardsWon = [];
+let cardsWon = [];
 
 function flipCard() {
   const cardId = this.getAttribute('data-id');
